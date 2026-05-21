@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Aymanul Haque Sadaf — Resume</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="resources/css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+	<noscript><link rel="stylesheet" href="resources/css/noscript.css" /></noscript>
+	<style>
+		/* =============================================
+		   CUSTOM OVERRIDES — Ayman's Resume
+		   ============================================= */
+
+		/* --- Hero: Deep space navy + grid pattern --- */
+		#intro {
+			background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+			position: relative;
+			overflow: hidden;
+		}
+		#intro::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image:
+				repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 61px),
+				repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 61px);
+			pointer-events: none;
+		}
+		#intro::after {
+			content: '';
+			position: absolute;
+			width: 600px;
+			height: 600px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+			top: -100px;
+			right: -100px;
+			pointer-events: none;
+		}
+		#intro .inner { position: relative; z-index: 1; }
+		#intro h1 {
+			font-size: 3.5em;
+			letter-spacing: 0.05em;
+			background: linear-gradient(90deg, #fff 0%, #a78bfa 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		/* --- Projects: Dark cards with left accent border --- */
+		#experience { background: #0d1117; }
+		#experience .image { display: none !important; }
+		#experience .content {
+			width: 100% !important;
+			background: linear-gradient(135deg, #161b27, #1a2035) !important;
+			border-left: 3px solid #6366f1;
+			transition: border-color 0.3s ease, box-shadow 0.3s ease;
+		}
+		#experience .content:hover {
+			border-left-color: #a78bfa;
+			box-shadow: -4px 0 20px rgba(99,102,241,0.2);
+		}
+		#experience .content .inner h2 { color: #a78bfa; }
+
+		/* --- Skills: Teal/ocean gradient + diagonal pattern --- */
+		#skills {
+			background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+			position: relative;
+			overflow: hidden;
+		}
+		#skills::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
+			pointer-events: none;
+		}
+		#skills .inner { position: relative; z-index: 1; }
+		#skills .features section {
+			background: rgba(255,255,255,0.05);
+			border: 1px solid rgba(255,255,255,0.08);
+			border-radius: 8px;
+			padding: 2em;
+			transition: background 0.3s ease, transform 0.3s ease;
+		}
+		#skills .features section:hover {
+			background: rgba(255,255,255,0.09);
+			transform: translateY(-4px);
+		}
+
+		/* --- Contact: Deep indigo with glow blobs --- */
+		#contact {
+			background: linear-gradient(135deg, #1e1b4b, #312e81, #1e1b4b);
+			position: relative;
+			overflow: hidden;
+		}
+		#contact::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image:
+				radial-gradient(circle at 20% 50%, rgba(99,102,241,0.1) 0%, transparent 50%),
+				radial-gradient(circle at 80% 20%, rgba(167,139,250,0.08) 0%, transparent 40%);
+			pointer-events: none;
+		}
+		#contact .inner { position: relative; z-index: 1; }
+
+		/* --- Sidebar --- */
+		#sidebar { background: linear-gradient(180deg, #0f0c29 0%, #302b63 100%); border-right: 1px solid rgba(255,255,255,0.05); }
+		#sidebar nav a.active, #sidebar nav a:hover { color: #a78bfa !important; }
+		#sidebar nav a::before { background: #6366f1 !important; }
+
+		/* --- Buttons --- */
+		.button { border-color: rgba(167,139,250,0.5) !important; color: #a78bfa !important; }
+		.button:hover { background: rgba(99,102,241,0.15) !important; border-color: #a78bfa !important; }
+
+		/* --- Footer --- */
+		#footer { background: #0a0a0f; border-top: 1px solid rgba(255,255,255,0.05); }
+
+		/* --- Visitor counter badge --- */
+		#visitor-counter {
+			position: fixed;
+			bottom: 1.5em;
+			right: 1.5em;
+			background: rgba(99,102,241,0.15);
+			border: 1px solid rgba(99,102,241,0.4);
+			color: #a78bfa;
+			padding: 0.5em 1em;
+			border-radius: 2em;
+			font-size: 0.75em;
+			letter-spacing: 0.1em;
+			backdrop-filter: blur(10px);
+			z-index: 9999;
+		}
+	</style>
+</head>
+<body class="is-preload">
+
+	<!-- Visitor Counter Badge -->
+	<div id="visitor-counter">👁 <span id="count">—</span> visits</div>
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">About</a></li>
+					<li><a href="#experience">Projects</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Hero -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Aymanul Haque Sadaf</h1>
+				<p>
+					Information Technology student at Florida International University<br />
+					AWS Certified Cloud Practitioner &nbsp;·&nbsp; Microsoft Azure Fundamentals<br />
+					Cloud &amp; Web Enthusiast based in Miami, FL
+				</p>
+				<ul class="actions">
+					<li><a href="#experience" class="button scrolly">View My Work</a></li>
+					<li><a href="mailto:aymanulhaque04@gmail.com" class="button">Get In Touch</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section id="experience" class="wrapper style2 spotlights">
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2><i class="fa-brands fa-aws" style="margin-right:0.4em;color:#f59e0b;"></i>Cloud Essentials Project</h2>
+						<p>Designed and deployed a basic cloud architecture using AWS services including EC2, S3, and IAM. Demonstrated understanding of cloud security, cost management, and scalability principles.</p>
+						<ul class="actions">
+							<li><a href="#skills" class="button scrolly">See my skills</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2><i class="fa-solid fa-globe" style="margin-right:0.4em;color:#38bdf8;"></i>Web Development Project</h2>
+						<p>Created an interactive multi-page website using HTML, CSS, and JavaScript with responsive design and version control through GitHub. Integrated APIs to fetch and display live data on a user-friendly web interface.</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2><i class="fa-solid fa-brain" style="margin-right:0.4em;color:#a78bfa;"></i>Python &amp; NLP Resume Parser</h2>
+						<p>Built a Natural Language Processing tool to parse resumes and extract key skills. Implemented algorithms to match resumes against job descriptions and generate skill-gap analysis with actionable recommendations.</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2><i class="fa-solid fa-cloud-arrow-up" style="margin-right:0.4em;color:#34d399;"></i>Cloud Resume Challenge</h2>
+						<p>Built and deployed this very resume as a serverless web application on AWS using S3, CloudFront, Lambda, DynamoDB, and API Gateway — fully automated with AWS SAM and Infrastructure as Code.</p>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<!-- Skills & Education -->
+		<section id="skills" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>Skills &amp; Education</h2>
+				<p>
+					<strong>B.Sc. Information Technology</strong> — Florida International University, Miami FL (Expected Dec 2026)<br />
+					<strong>IGCSE A Levels</strong> — Yale International School, Dhaka, Bangladesh (2020–2022) · Physics, Mathematics, Accounting
+				</p>
+				<div class="features">
+					<section>
+						<i class="fa-solid fa-code" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Languages</h3>
+						<p>Java, Python, SQL, HTML/CSS, Bash</p>
+					</section>
+					<section>
+						<i class="fa-solid fa-cloud" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Cloud &amp; Platforms</h3>
+						<p>AWS (EC2, S3, IAM, Lambda, CloudFront, DynamoDB), Microsoft Azure, Linux, Git/GitHub</p>
+					</section>
+					<section>
+						<i class="fa-solid fa-screwdriver-wrench" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Tools</h3>
+						<p>VS Code, Eclipse, Figma, AWS SAM CLI, AWS Vault</p>
+					</section>
+					<section>
+						<i class="fa-solid fa-network-wired" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Concepts</h3>
+						<p>Cloud Computing, Networking Fundamentals, System Administration, Database Management, IaC</p>
+					</section>
+					<section>
+						<i class="fa-solid fa-certificate" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Certifications</h3>
+						<p>
+							AWS Certified Cloud Practitioner (Oct 2025)<br />
+							Microsoft Azure Fundamentals (Dec 2025)<br />
+							Excel White Belt L1 — McGraw Hill (Jul 2024)
+						</p>
+					</section>
+					<section>
+						<i class="fa-solid fa-users" style="font-size:2em; margin-bottom:0.5em; display:block; color:#38bdf8;"></i>
+						<h3>Extracurricular</h3>
+						<p>INIT FIU — IT &amp; Innovation Club (Aug 2024–Present). Cloud computing workshops, UI/UX discussions, and student-led tech talks.</p>
+					</section>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section id="contact" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Get in touch</h2>
+				<p>Feel free to reach out for opportunities, collaborations, or just to connect!</p>
+				<div class="split style1">
+					<section>
+						<ul class="contact">
+							<li>
+								<h3>Location</h3>
+								<span>Miami, Florida, USA</span>
+							</li>
+							<li>
+								<h3>Email</h3>
+								<a href="mailto:aymanulhaque04@gmail.com">aymanulhaque04@gmail.com</a>
+							</li>
+							<li>
+								<h3>Phone</h3>
+								<span>+1 (786) 531-3276</span>
+							</li>
+							<li>
+								<h3>Social</h3>
+								<ul class="icons">
+									<li><a href="https://github.com/aymansadaf" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/aymanul-haque/" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Relevant Coursework</h3>
+						<p style="font-size:0.9em; line-height:2em; color: rgba(255,255,255,0.6);">
+							Programming in Java &nbsp;·&nbsp; Human-Computer Interaction &nbsp;·&nbsp;
+							Intermediate Java &nbsp;·&nbsp; Cloud Essentials &nbsp;·&nbsp;
+							Computer Operating Systems &nbsp;·&nbsp; Applied Computer Networking &nbsp;·&nbsp;
+							Information Storage &amp; Retrieval &nbsp;·&nbsp; Web Design
+						</p>
+					</section>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Aymanul Haque Sadaf. All rights reserved.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/jquery.scrollex.min.js"></script>
+	<script src="resources/js/jquery.scrolly.min.js"></script>
+	<script src="resources/js/browser.min.js"></script>
+	<script src="resources/js/breakpoints.min.js"></script>
+	<script src="resources/js/util.js"></script>
+	<script src="resources/js/main.js"></script>
+
+	<!-- Visitor counter — wire up to Lambda API later -->
+	<script>
+		fetch('https://ejw0vgnjs7.execute-api.us-east-2.amazonaws.com/Prod/hello/')
+  		.then(res => res.json())
+  		.then(data => document.getElementById('count').textContent = data.count)
+  		.catch(err => document.getElementById('count').textContent = '—');
+	</script>
+
+</body>
+</html>
